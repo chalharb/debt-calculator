@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/debt-calculator/static/css/main.afd7172b.chunk.css",
+    "main.js": "/debt-calculator/static/js/main.8a923de8.chunk.js",
+    "main.js.map": "/debt-calculator/static/js/main.8a923de8.chunk.js.map",
+    "runtime-main.js": "/debt-calculator/static/js/runtime-main.750b5e28.js",
+    "runtime-main.js.map": "/debt-calculator/static/js/runtime-main.750b5e28.js.map",
+    "static/js/2.63ad987a.chunk.js": "/debt-calculator/static/js/2.63ad987a.chunk.js",
+    "static/js/2.63ad987a.chunk.js.map": "/debt-calculator/static/js/2.63ad987a.chunk.js.map",
+    "static/js/3.507a2eb3.chunk.js": "/debt-calculator/static/js/3.507a2eb3.chunk.js",
+    "static/js/3.507a2eb3.chunk.js.map": "/debt-calculator/static/js/3.507a2eb3.chunk.js.map",
+    "index.html": "/debt-calculator/index.html",
+    "static/css/main.afd7172b.chunk.css.map": "/debt-calculator/static/css/main.afd7172b.chunk.css.map",
+    "static/js/2.63ad987a.chunk.js.LICENSE.txt": "/debt-calculator/static/js/2.63ad987a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.750b5e28.js",
+    "static/js/2.63ad987a.chunk.js",
+    "static/css/main.afd7172b.chunk.css",
+    "static/js/main.8a923de8.chunk.js"
+  ]
+}
