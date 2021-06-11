@@ -1,21 +1,34 @@
-import React from 'react'
+import React from 'react';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-
 interface Props {
-    children?: React.ReactNode;
-    title: string;
+    leftContent: React.ReactNode | string;
+    rightContent?: React.ReactNode | string;
 }
 
-// TODO: Create a prop that allow you to pass in a component on the right side of the nav
-const Navbar:React.FC<Props> = ({ children, title }) => {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    left: {
+      flexGrow: 1,
+    },
+  }),
+);
+
+const Navbar:React.FC<Props> = ({ leftContent, rightContent}) => {
+  const classes = useStyles();
+
     return (
-        <AppBar>
+      <AppBar position="static" className={classes.root}>
         <Toolbar>
-          <Typography variant="h6">
-            { title }
-          </Typography>
+          <div className={classes.left}>{leftContent}</div>
+          {rightContent}
         </Toolbar>
       </AppBar>
     )
