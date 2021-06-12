@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import debtsReducer from './reducers/debtsSlice';
+import debtsReducer from './Debt/debtSlice';
 
 export const store = configureStore({
   reducer: {

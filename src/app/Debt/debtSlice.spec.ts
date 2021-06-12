@@ -1,9 +1,10 @@
 import debtsReducer, {
-    Debt,
     addDebt,
     updateDebt,
     deleteDebt,
-} from './debtsSlice'
+} from './debtSlice';
+
+import { Debt } from './model';
 
 describe('debts reducer', () => {
     let newDebt: Debt = {

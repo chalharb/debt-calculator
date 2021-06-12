@@ -1,13 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-
-export interface Debt {
-    id: number;
-    name: string;
-    rate: number;
-    payment: number;
-    balance: number;
-};
+import { Debt } from './model';
 
 const initialState: Array<Debt> = [];
 
