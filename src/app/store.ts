@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import debtsReducer from './Debt/debtSlice';
+import toggleStrategySliceReducer from '../components/ToggleStrategy/toggleStrategySlice';
 
 export const store = configureStore({
   reducer: {
+    strategy: toggleStrategySliceReducer,
     debts: debtsReducer
   },
 });

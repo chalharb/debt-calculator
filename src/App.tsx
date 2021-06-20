@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Navbar from './features/Navbar/Navbar';
 import Theme from './features/Theme/Theme';
+import ToggleStrategy from './components/ToggleStrategy/ToggleStrategy';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               lg={6}
             >
               <h2>Debt Table Feature</h2>
+              <ToggleStrategy></ToggleStrategy>
             </Grid>
             <Grid item
               xs={12}
