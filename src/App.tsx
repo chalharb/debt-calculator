@@ -1,23 +1,40 @@
 import React from 'react';
-import Theme from './components/Theme/Theme';
-import Navbar from './components/Navbar/Navbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
-const NavLeftContent = (
-  <Typography variant="h6">
-    Debt Calculator
-  </Typography>
-);
-
-const NavRightContent = (
-  <Button color="inherit">Login</Button>
-);
+// MUI Components
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Navbar from './features/Navbar/Navbar';
+import Theme from './features/Theme/Theme';
 
 function App() {
   return (
     <Theme>
-      <Navbar leftContent={NavLeftContent} rightContent={NavRightContent}></Navbar>
+      <Navbar />
+      <Container
+        maxWidth="xl"
+      >
+        <Box
+          mt={4}
+        >
+          <Grid container
+            spacing={3}
+          >
+            <Grid item
+              xs={12}
+              lg={6}
+            >
+              <h2>Debt Table Feature</h2>
+            </Grid>
+            <Grid item
+              xs={12}
+              lg={6}
+            >
+              <h2>Debt Burndown Feature</h2>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
     </Theme>
   );
 }
