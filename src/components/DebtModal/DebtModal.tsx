@@ -6,12 +6,12 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-interface DebtModal {
+interface Props {
     isOpen?: boolean;
     onClick?: () => void;
 }
 
-const DebtModal:React.FC<DebtModal> = ({ isOpen = false }) => {
+const DebtModal:React.FC<Props> = ({ isOpen = false }) => {
     const [open, setOpen] = React.useState(isOpen);
 
     const handleClickOpen = () => {
