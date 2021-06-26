@@ -11,6 +11,12 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
   const theme = React.useMemo(
     () => createMuiTheme({
       palette: {
+        primary: {
+          main: '#3B8EA5',
+        },
+        secondary: {
+          main: '#F46036',
+        },
         type: prefersDarkMode ? 'dark' : 'light',
       },
     }),
