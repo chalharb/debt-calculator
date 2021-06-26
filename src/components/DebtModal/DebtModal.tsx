@@ -37,7 +37,7 @@ const DebtModal:React.FC<Props> = ({ isOpen = false }) => {
                     <DebtForm/>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose} color="secondary">
                         Cancel
                     </Button>
                     <Button onClick={handleClose} variant="contained" color="primary">
