@@ -5,7 +5,6 @@ import { ThemeProvider as SCThemeProvider } from "styled-components";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import '@fontsource/roboto';
-import { green, orange } from '@material-ui/core/colors';
 
 const Theme: React.FC<ThemeProps> = ({ children }) => {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
