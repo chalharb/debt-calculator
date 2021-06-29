@@ -8,8 +8,13 @@ import Navbar from './features/Navbar/Navbar';
 import Theme from './features/Theme/Theme';
 import ToggleStrategy from './components/ToggleStrategy/ToggleStrategy';
 import DebtModal from './components/DebtModal/DebtModal';
+import DebtTable from './components/DebtTable/DebtTable';
+import { useSelector } from 'react-redux';
+import { selectDebts } from './app/Debt/debtSlice';
 
 function App() {
+  const debts = useSelector(selectDebts);
+
   return (
     <Theme>
       <Navbar />
@@ -29,6 +34,7 @@ function App() {
               <h2>Debt Table Feature</h2>
               <ToggleStrategy/>
               <DebtModal/>
+              <DebtTable title="All Debts" data={debts}></DebtTable>
             </Grid>
             <Grid item
               xs={12}
