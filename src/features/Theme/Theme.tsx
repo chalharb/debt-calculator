@@ -19,6 +19,13 @@ const Theme: React.FC<ThemeProps> = ({ children }) => {
         },
         type: prefersDarkMode ? 'dark' : 'light',
       },
+      overrides: {
+        MUIDataTableToolbar: {
+            actions: {
+                flex: "0 1 auto",
+            }
+        },
+    }
     }),
     [prefersDarkMode],
   );
