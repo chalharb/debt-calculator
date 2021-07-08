@@ -1,9 +1,10 @@
 import React from 'react';
-import MUIDataTable, { MUIDataTableColumnOptions } from "mui-datatables";
+import MUIDataTable, { MUIDataTableColumnOptions, MUIDataTableOptions } from "mui-datatables";
 import { Debt } from '../../app/Debt/model';
 import NumberFormat from 'react-number-format';
 import ToggleStrategy from '../ToggleStrategy/ToggleStrategy';
-
+import DebtFooter from './DebtFooter';
+import DebtMenu from './DebtMenu';
 interface Props {
     title?: string;
     data: Array<Debt>;
@@ -66,7 +67,7 @@ const DebtTable: React.FC<Props> = ({ title, data }) => {
             options: {
                 filter: false,
                 sort: false,
-                customBodyRender: (value: any, tableMeta: any, updateValue: any) => {
+                customBodyRender: (value: any) => {
                     return (
                         <NumberFormat
                             value={value}
@@ -80,10 +81,24 @@ const DebtTable: React.FC<Props> = ({ title, data }) => {
                 }
             }
         },
+        {
+            name: "",
+            label: "",
+            options: {
+                filter: false,
+                sort: false,
+                customBodyRender: (value: any, tableMeta: any, updateValue: any) => {
+                    console.log(tableMeta)
+                    return (
+                        <DebtMenu debtId={tableMeta.rowData} />
+                    );
+                }
+            }
+        },
 
     ];
 
-    const options = {
+    const options: MUIDataTableOptions = {
         responsive: 'simple',
         fixedHeader: false,
         selectableRowsHeader: false,
@@ -97,11 +112,29 @@ const DebtTable: React.FC<Props> = ({ title, data }) => {
             return (
                 <ToggleStrategy />
             )
-        }
+        },
+        customFooter: (
+            count: any,
+            page: any,
+            rowsPerPage: any,
+            changeRowsPerPage: any,
+            changePage: any,
+            textLabels: any
+        ) => {
+            return (
+                <DebtFooter
+                    count={count}
+                    page={page}
+                    rowsPerPage={rowsPerPage}
+                    changeRowsPerPage={changeRowsPerPage}
+                    changePage={changePage}
+                    textLabels={textLabels}
+                />
+            );
+        },
     } as MUIDataTableColumnOptions;
 
     return (
-
         <MUIDataTable
             title={title}
             data={data}
