@@ -24,8 +24,8 @@ export const StyledSwitch = withStyles((theme: Theme) =>
                 color: theme.palette.common.white,
                 '& + $track': {
                     opacity: 1,
-                    backgroundColor: theme.palette.secondary.main,
-                    borderColor: theme.palette.secondary.main,
+                    backgroundColor: theme.palette.primary.main,
+                    borderColor: theme.palette.primary.main,
                 },
             },
         },
