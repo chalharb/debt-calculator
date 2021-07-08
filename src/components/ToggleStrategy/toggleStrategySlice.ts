@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { Strategy } from './types';
 
-const initialState = 'avalanche' as Strategy;
+const initialState = 'snowball' as Strategy;
 
 export const toggleStrategySlice = createSlice({
     name: 'strategy',
@@ -15,6 +15,6 @@ export const toggleStrategySlice = createSlice({
 });
 
 export const { updateStrategy } = toggleStrategySlice.actions;
-export const selectDebts = (state: RootState) => state.strategy;
+export const selectStrategy = (state: RootState) => state.strategy;
 
 export default toggleStrategySlice.reducer;

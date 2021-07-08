@@ -5,48 +5,41 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import DebtForm from '../DebtForm/DebtForm';
 
-interface Props {
+export interface DebtModalProps {
     isOpen?: boolean;
-    onClick?: () => void;
+    children?: React.ReactNode;
+    ref?: any
 }
 
-const DebtModal:React.FC<Props> = ({ isOpen = false }) => {
-    const [open, setOpen] = React.useState(isOpen);
+const DebtModal: React.FC<DebtModalProps> = React.forwardRef(({ isOpen = false, children }, ref: any) => {
+    const [modalIsOpen, setOpen] = React.useState(isOpen);
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const toggleModalState = () => {
+        setOpen(!modalIsOpen);
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+    React.useImperativeHandle(ref, () => ({ toggleModalState }));
 
     return (
-        <div>
-            <Button variant="contained" color="primary" onClick={handleClickOpen}>
-                Add Debt
-            </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">New Debt</DialogTitle>
-                <DialogContent>
-                    <DialogContentText>
-                        Enter your information to create a new debt.
-                    </DialogContentText>
-                    <DebtForm/>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color="secondary">
-                        Cancel
-                    </Button>
-                    <Button onClick={handleClose} variant="contained" color="primary">
-                        Add
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
+        <Dialog open={modalIsOpen} onClose={toggleModalState} aria-labelledby="form-dialog-title">
+            <DialogTitle id="form-dialog-title">New Debt</DialogTitle>
+            <DialogContent>
+                <DialogContentText>
+                    Enter your information to create a new debt.
+                </DialogContentText>
+                {children}
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={toggleModalState} color="secondary">
+                    Cancel
+                </Button>
+                <Button onClick={toggleModalState} variant="contained" color="primary">
+                    Add
+                </Button>
+            </DialogActions>
+        </Dialog>
     );
-};
+});
 
 export default DebtModal;

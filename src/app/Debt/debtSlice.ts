@@ -2,7 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { Debt } from './model';
 
-const initialState: Array<Debt> = [];
+const initialState: Array<Debt> = [
+    { id: 0, name: 'American Express', payment: 100, rate: 1.25, balance: 500 },
+    { id: 1, name: 'Student Loans', payment: 200, rate: 2.25, balance: 600 },
+    { id: 2, name: 'Car Payment', payment: 300, rate: 3.25, balance: 700 },
+    { id: 3, name: 'Hospital Bill', payment: 400, rate: 4.25, balance: 800 },
+];
 
 export const debtsSlice = createSlice({
     name: 'debts',
@@ -22,6 +27,7 @@ export const debtsSlice = createSlice({
                         balance: action.payload.balance,
                     };
                 }
+
                 return item;
             });
         },
@@ -32,6 +38,18 @@ export const debtsSlice = createSlice({
 });
 
 export const { addDebt, updateDebt, deleteDebt } = debtsSlice.actions;
-export const selectDebts = (state: RootState) => state.debts;
+export const selectDebts = (state: RootState) => {
+    let debts = [...state.debts];
+
+    if (state.strategy === 'snowball') {
+        return debts.sort((a, b) => (a.balance < b.balance) ? 1 : -1)
+    }
+
+    if (state.strategy === 'avalanche') {
+        return debts.sort((a, b) => (a.rate > b.rate) ? 1 : -1)
+    }
+
+    return debts;
+}
 
 export default debtsSlice.reducer;
